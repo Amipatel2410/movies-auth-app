@@ -63,6 +63,16 @@ moviesController.create = (req, res) => {
     });
 };
 
+moviesController.destroy = (req, res) => {
+  Movie.destroy(req.params.id)
+    .then(() => {
+      res.redirect('/movies')
+    })
+    .catch(err => {
+      res.status(400).json(err);
+    });
+};
+
 
 
 
